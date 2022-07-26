@@ -32,32 +32,23 @@
   </div>
 </div>
 
-<!--//- Catagories start -->
+<!--//- Catagories start, recipeController.homepage -->
 <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
-  <a href="#" class="col text-center category__link">
+  <% if (categories !='') { %> <% categories.forEach((category, index) => { %>
+  <a
+    href="/categories/<%- category.name %>"
+    class="col text-center category__link"
+  >
     <div class="category__img shadow">
-      <img src="img/thai-food.jpg" alt="Thai Food" loading="lazy" />
+      <img
+        src="img/<%- category.image %> "
+        alt="<%- category.name %> "
+        loading="lazy"
+      />
     </div>
-    <div class="pt-1">Thai Food</div>
+    <div class="pt-1"><%- category.name %></div>
   </a>
-  <a href="#" class="col text-center category__link">
-    <div class="category__img shadow">
-      <img src="img/thai-food.jpg" alt="Thai Food" loading="lazy" />
-    </div>
-    <div class="pt-1">Thai Food</div>
-  </a>
-  <a href="#" class="col text-center category__link">
-    <div class="category__img shadow">
-      <img src="img/thai-food.jpg" alt="Thai Food" loading="lazy" />
-    </div>
-    <div class="pt-1">Thai Food</div>
-  </a>
-  <a href="#" class="col text-center category__link">
-    <div class="category__img shadow">
-      <img src="img/thai-food.jpg" alt="Thai Food" loading="lazy" />
-    </div>
-    <div class="pt-1">Thai Food</div>
-  </a>
+  <%}) %> <% } %>
 
   <!--//* 🟢View All categories  GET /categories -->
 
@@ -142,15 +133,15 @@
     height="208"
     loading="lazy"
   />
-  <h1 class="display-5 fw-bold">Publish your Munchie for free TODAY</h1>
+  <h1 class="display-5 fw-bold">Publish your Munchie for FREE today!</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">
-      Publish your recipies for thousands of other people for free!
+      Publish your Munchies for thousands of other people for free!
     </p>
     <div class="d-grid ga d-sm-flex justify-content-sm-center">
-      <a href="/submit-recipie" class="btn btn-primary btn-dark btn-lg"
-        >Submit Recipe</a
-      >
+      <a href="/submit-recipe" class="btn btn-primary btn-dark btn-lg"
+        >Submit Munchie
+      </a>
     </div>
   </div>
 </section>
