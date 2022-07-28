@@ -10,9 +10,13 @@ exports.homepage = async (req, res) => {
     const limitNumber = 5;
     // 🪄 limitNumber is the number of categories that the homepage can handle. 
     const categories = await Category.find({}).limit(limitNumber);
+    const latest = await Recipe.find({}).sort({ id: -1 }).limit(limitNumber);
+
+    const food = { latest };
     res.render('index', {
       title: 'Munchie🥦 Homepage🏠',
       categories,
+      food
     });
   } catch (error) {
     console.error("ERROR📛:", error);
@@ -20,6 +24,10 @@ exports.homepage = async (req, res) => {
     // we do res 500 here if we cant connect to the database to render our info on the homepage
   }
 }
+
+
+
+
 
 //- get categories
 
